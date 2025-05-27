@@ -1,0 +1,65 @@
+﻿@import "tailwindcss";
+/* npx @tailwindcss/cli -i ./TailwindcssImport/input.css -o ./wwwroot/css/tailwindcss.css --watch */
+
+@theme {
+    --animate-fadeInRight: fadeInRight 1s ease-in-out forwards;
+    --animate-fadeInTop: fadeInTop 1s ease-in-out forwards;
+    --animate-fadeInBottom: fadeInBottom 1s ease-in-out forwards;
+    --animate-fadeInLeft: fadeInLeft 1s ease-in-out forwards;
+
+    @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(-50px, 0, 0); /*Safari - Firefox*/
+            transform: translate3d(-50px, 0, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    @keyframes fadeInBottom {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -50px, 0); /*Safari - Firefox*/
+            transform: translate3d(0, -50px, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(50px, 0, 0); /*Safari - Firefox*/
+            transform: translate3d(50px, 0, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    @keyframes fadeInTop {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 40px, 0); /*Safari - Firefox*/
+            transform: translate3d(0, 40px, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+}

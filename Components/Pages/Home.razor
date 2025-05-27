@@ -1,0 +1,44 @@
+﻿@page "/"
+@inject IJSRuntime Js
+@rendermode InteractiveServer
+
+<PageTitle>CV - Lưu Thiện Văn</PageTitle>
+
+<ComponentHeader />
+
+<ComponentAbout />
+
+<ComponentSkills />
+
+<ComponentEducation />
+
+<ComponentExperience />
+
+<ComponentContact />
+
+<div class="flex flex-column justify-center m-2">
+	<span class="text-right">
+		<i>
+			©copyright 2025 - All rights reserved by Van.LT
+		</i>
+	</span>
+</div>
+
+@code {
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		if (firstRender)
+		{
+			try
+			{
+				await Js.InvokeVoidAsync("initScrollAnimations");
+				await Js.InvokeVoidAsync("callSwiperJSEffect");
+				StateHasChanged(); // Cập nhật lại giao diện
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"Error: {ex.Message}");
+			}
+		}
+	}
+}
