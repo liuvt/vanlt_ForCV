@@ -1,8 +1,8 @@
-﻿<div class="relative">
-	<!-- Overlay khi sidebar mở (mobile) -->
+﻿@inject MenuService menuService
+<div class="relative">
+	<!-- Khi ở trạng thái mobile Hiển thị button ToggleSideBar -->
 	@if (!isSidebarVisible)
 	{
-		<!-- Overlay toàn màn hình, click vào sẽ đóng sidebar -->
 		<div class="flex items-center justify-between space-x-4">
 			<button @onclick="ToggleSidebar"
 					class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
@@ -26,17 +26,19 @@
 
 		<!-- Sidebar: nằm phía trên overlay, không bị ảnh hưởng khi click vào -->
 		<div class="sidebar @SidebarCssClassHide">
+			<!--@onclick:stopPropagation trong Blazor là cú pháp mở rộng cho sự kiện @onclick, 
+				giúp bạn ngăn chặn sự kiện click lan ra các phần tử cha (tương tự như event.stopPropagation() trong JavaScript).-->
 			<div @onclick:stopPropagation
 				 class="@SidebarTransitionClass fixed top-0 left-0 z-40 w-64 h-screen transition-transform">
 				<nav class="text-center text-bg-dark h-full overflow-y-auto pt-3">
 					<img class="w-32 rounded-full border-2 border-white mx-auto" src="./imgs/about.jpg" />
 					<div class="p-6 text-2xl font-bold">LƯU THIỆN VĂN</div>
 					<ul class="space-y-2 font-medium mr-9">
-						@foreach (var item in MenuItems)
+						@foreach (var item in menuService.Menus)
 						{
 							<li>
-								<a href="@item.Link" @onclick="ToggleSidebar" data-nav-section="@item.Link.Replace("#","")" class="block !no-underline hover:text-blue-400 hover:translate-x-1 transition-all duration-200">
-									@item.Label
+								<a href="@item.OtherUrl" @onclick="ToggleSidebar" data-nav-section="@item.Url" class="block !no-underline hover:text-blue-400 hover:translate-x-1 transition-all duration-200">
+									@item.OtherName
 								</a>
 							</li>
 						}
@@ -63,15 +65,5 @@
 		isSidebarVisible
 			? "translate-x-0"
 			: "-translate-x-full xl:translate-x-0";
-
-	private List<(string Label, string Link)> MenuItems = new()
-	{
-		("Giới thiệu", "#home"),
-		("Thông tin", "#about"),
-		("Kỹ năng", "#skills"),
-		("Trình độ học vấn", "#education"),
-		("Kinh nghiệm", "#experience"),
-		("Liên hệ", "#contact"),
-	};
 }
  

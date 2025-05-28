@@ -1,10 +1,14 @@
-using vanlt_ForCV.Components;
+﻿using vanlt_ForCV.Components;
+using vanlt_ForCV.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+// Đăng ký service MenuItem để gọi khi cần
+builder.Services.AddSingleton<MenuService>();
 
 var app = builder.Build();
 
