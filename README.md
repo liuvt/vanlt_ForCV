@@ -10,7 +10,11 @@
 
 #Tailwind: https://tailwindcss.com/docs/installation/tailwind-cli/
 
+- Install Tailwind CSS CLI globally:
+```npm install -g @tailwindcss/cli```
+
 - Custom Tailwind CSS build:
+
 ```npx @tailwindcss/cli -i ./TailwindcssImport/input.css -o ./wwwroot/css/tailwindcss.css --watch```
 
 # Support:
