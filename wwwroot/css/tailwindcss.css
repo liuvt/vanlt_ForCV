@@ -26,7 +26,6 @@
     --color-purple-100: oklch(94.6% 0.033 307.174);
     --color-purple-600: oklch(55.8% 0.288 302.321);
     --color-pink-500: oklch(65.6% 0.241 354.308);
-    --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-400: oklch(70.7% 0.022 261.325);
@@ -38,16 +37,11 @@
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
-    --container-xl: 36rem;
-    --container-2xl: 42rem;
-    --container-5xl: 64rem;
     --container-6xl: 72rem;
     --text-xs: 0.75rem;
     --text-xs--line-height: calc(1 / 0.75);
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
-    --text-base: 1rem;
-    --text-base--line-height: calc(1.5 / 1);
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
@@ -58,13 +52,10 @@
     --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
-    --text-5xl: 3rem;
-    --text-5xl--line-height: 1;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
-    --tracking-wider: 0.05em;
     --tracking-widest: 0.1em;
     --radius-md: 0.375rem;
     --radius-lg: 0.5rem;
@@ -744,8 +735,23 @@
   .resize {
     resize: both;
   }
+  .list-\[url\(\.\/imgs\/checkmark\.png\)\] {
+    list-style-type: url(./imgs/checkmark.png);
+  }
+  .list-decimal {
+    list-style-type: decimal;
+  }
   .list-disc {
     list-style-type: disc;
+  }
+  .list-image-\[url\(\.\.\/imgs\/checkmark\.png\)\] {
+    list-style-image: url(../imgs/checkmark.png);
+  }
+  .list-image-\[url\(\.\.\/imgs\/checkmark14-12\.png\)\] {
+    list-style-image: url(../imgs/checkmark14-12.png);
+  }
+  .list-image-\[url\(\.\/imgs\/checkmark\.png\)\] {
+    list-style-image: url(./imgs/checkmark.png);
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -809,9 +815,6 @@
   }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
-  }
-  .gap-12 {
-    gap: calc(var(--spacing) * 12);
   }
   .space-y-2 {
     :where(& > :not(:last-child)) {
@@ -1181,6 +1184,9 @@
   .text-start {
     text-align: start;
   }
+  .indent-8 {
+    text-indent: calc(var(--spacing) * 8);
+  }
   .align-baseline {
     vertical-align: baseline;
   }
@@ -1253,6 +1259,21 @@
   .text-wrap {
     text-wrap: wrap;
   }
+  .\!text-gray-400 {
+    color: var(--color-gray-400) !important;
+  }
+  .\!text-gray-500 {
+    color: var(--color-gray-500) !important;
+  }
+  .\!text-gray-600 {
+    color: var(--color-gray-600) !important;
+  }
+  .\!text-gray-700 {
+    color: var(--color-gray-700) !important;
+  }
+  .\!text-gray-900 {
+    color: var(--color-gray-900) !important;
+  }
   .text-black {
     color: var(--color-black);
   }
@@ -1303,6 +1324,9 @@
   }
   .line-through {
     text-decoration-line: line-through;
+  }
+  .no-underline {
+    text-decoration-line: none;
   }
   .underline {
     text-decoration-line: underline;
@@ -1368,6 +1392,10 @@
     --tw-duration: 200ms;
     transition-duration: 200ms;
   }
+  .duration-300 {
+    --tw-duration: 300ms;
+    transition-duration: 300ms;
+  }
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
@@ -1405,6 +1433,13 @@
       }
     }
   }
+  .hover\:\!text-blue-500 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-blue-500) !important;
+      }
+    }
+  }
   .hover\:text-blue-400 {
     &:hover {
       @media (hover: hover) {
@@ -1412,10 +1447,52 @@
       }
     }
   }
+  .hover\:text-blue-500 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-blue-500);
+      }
+    }
+  }
+  .hover\:\!underline {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-line: underline !important;
+      }
+    }
+  }
   .hover\:underline {
     &:hover {
       @media (hover: hover) {
         text-decoration-line: underline;
+      }
+    }
+  }
+  .hover\:\!decoration-2 {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-thickness: 2px !important;
+      }
+    }
+  }
+  .hover\:decoration-2 {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-thickness: 2px;
+      }
+    }
+  }
+  .hover\:\!underline-offset-4 {
+    &:hover {
+      @media (hover: hover) {
+        text-underline-offset: 4px !important;
+      }
+    }
+  }
+  .hover\:underline-offset-4 {
+    &:hover {
+      @media (hover: hover) {
+        text-underline-offset: 4px;
       }
     }
   }
@@ -1501,31 +1578,6 @@
       &:focus {
         --tw-ring-color: var(--color-gray-600);
       }
-    }
-  }
-  .\[\&\>svg\]\:h-7 {
-    &>svg {
-      height: calc(var(--spacing) * 7);
-    }
-  }
-  .\[\&\>svg\]\:w-7 {
-    &>svg {
-      width: calc(var(--spacing) * 7);
-    }
-  }
-  .\[\&\>svg\]\:fill-\[\#1877f2\] {
-    &>svg {
-      fill: #1877f2;
-    }
-  }
-  .\[\&\>svg\]\:fill-\[\#9146ff\] {
-    &>svg {
-      fill: #9146ff;
-    }
-  }
-  .\[\&\>svg\]\:fill-\[\#c13584\] {
-    &>svg {
-      fill: #c13584;
     }
   }
 }
