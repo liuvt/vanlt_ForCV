@@ -21,4 +21,6 @@
 
 #NodeJS: https://nodejs.org/en
 
+#Pagedone Icon: https://pagedone.io/docs/social-media-icons
 
+#Heroicons: https://heroicons.com/
