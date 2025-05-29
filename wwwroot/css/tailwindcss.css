@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.7 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.1.8 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -735,23 +735,8 @@
   .resize {
     resize: both;
   }
-  .list-\[url\(\.\/imgs\/checkmark\.png\)\] {
-    list-style-type: url(./imgs/checkmark.png);
-  }
-  .list-decimal {
-    list-style-type: decimal;
-  }
-  .list-disc {
-    list-style-type: disc;
-  }
-  .list-image-\[url\(\.\.\/imgs\/checkmark\.png\)\] {
-    list-style-image: url(../imgs/checkmark.png);
-  }
   .list-image-\[url\(\.\.\/imgs\/checkmark14-12\.png\)\] {
     list-style-image: url(../imgs/checkmark14-12.png);
-  }
-  .list-image-\[url\(\.\/imgs\/checkmark\.png\)\] {
-    list-style-image: url(./imgs/checkmark.png);
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -1262,17 +1247,8 @@
   .\!text-gray-400 {
     color: var(--color-gray-400) !important;
   }
-  .\!text-gray-500 {
-    color: var(--color-gray-500) !important;
-  }
   .\!text-gray-600 {
     color: var(--color-gray-600) !important;
-  }
-  .\!text-gray-700 {
-    color: var(--color-gray-700) !important;
-  }
-  .\!text-gray-900 {
-    color: var(--color-gray-900) !important;
   }
   .text-black {
     color: var(--color-black);
@@ -1324,9 +1300,6 @@
   }
   .line-through {
     text-decoration-line: line-through;
-  }
-  .no-underline {
-    text-decoration-line: none;
   }
   .underline {
     text-decoration-line: underline;
@@ -1388,10 +1361,6 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
-  .duration-200 {
-    --tw-duration: 200ms;
-    transition-duration: 200ms;
-  }
   .duration-300 {
     --tw-duration: 300ms;
     transition-duration: 300ms;
@@ -1403,6 +1372,16 @@
   .ease-out {
     --tw-ease: var(--ease-out);
     transition-timing-function: var(--ease-out);
+  }
+  .group-hover\:scale-110 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        --tw-scale-x: 110%;
+        --tw-scale-y: 110%;
+        --tw-scale-z: 110%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
   }
   .hover\:translate-x-1 {
     &:hover {
@@ -1440,20 +1419,6 @@
       }
     }
   }
-  .hover\:text-blue-400 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-blue-400);
-      }
-    }
-  }
-  .hover\:text-blue-500 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-blue-500);
-      }
-    }
-  }
   .hover\:\!underline {
     &:hover {
       @media (hover: hover) {
@@ -1475,24 +1440,10 @@
       }
     }
   }
-  .hover\:decoration-2 {
-    &:hover {
-      @media (hover: hover) {
-        text-decoration-thickness: 2px;
-      }
-    }
-  }
   .hover\:\!underline-offset-4 {
     &:hover {
       @media (hover: hover) {
         text-underline-offset: 4px !important;
-      }
-    }
-  }
-  .hover\:underline-offset-4 {
-    &:hover {
-      @media (hover: hover) {
-        text-underline-offset: 4px;
       }
     }
   }
@@ -1770,6 +1721,21 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
 @keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -1864,6 +1830,9 @@
       --tw-drop-shadow-size: initial;
       --tw-duration: initial;
       --tw-ease: initial;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
     }
   }
 }
